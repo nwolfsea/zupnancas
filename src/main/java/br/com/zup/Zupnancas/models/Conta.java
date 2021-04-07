@@ -24,6 +24,12 @@ public class Conta {
     @Column(name = "status_conta")
     private StatusEnum status;
 
+    @ManyToOne(optional = false)
+    private Saldo saldo;
+
+    @ManyToMany
+    private Categoria categoria;
+
     public Conta() {
     }
 

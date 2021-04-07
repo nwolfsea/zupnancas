@@ -18,7 +18,8 @@ public class Credito {
     @Column(name = "entrada_credito")
     private LocalDate dataDeEntrada;
 
-
+    @ManyToOne(optional = false)
+    private Saldo saldo;
 
     public Credito() {
     }
