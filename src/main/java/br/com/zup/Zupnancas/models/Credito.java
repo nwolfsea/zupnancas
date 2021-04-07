@@ -3,6 +3,7 @@ package br.com.zup.Zupnancas.models;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+
 @Entity
 @Table(name = "creditos")
 public class Credito {
@@ -16,6 +17,8 @@ public class Credito {
     private String descricao;
     @Column(name = "entrada_credito")
     private LocalDate dataDeEntrada;
+
+
 
     public Credito() {
     }
