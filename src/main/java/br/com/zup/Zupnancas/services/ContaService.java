@@ -1,14 +1,11 @@
 package br.com.zup.Zupnancas.services;
 
+import br.com.zup.Zupnancas.DTO.FIltroDeContasDTO;
 import br.com.zup.Zupnancas.models.Conta;
 import br.com.zup.Zupnancas.repositories.ContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-
-//Pesquisar Contas Pagas, Aguardando ou Atrasadas.
-//
 
 @Service
 public class ContaService {
@@ -26,5 +23,12 @@ public class ContaService {
             return objConta;
         }
         throw new RuntimeException("Conta não localizada!");
+    }
+
+    public Iterable<Conta> pesquisarTodasAsContasPorStatus(FIltroDeContasDTO filtro){
+        if(filtro.getStatus() == null){
+            return contaRepository.findAll();
+        }
+        return contaRepository.findAllByStatus(filtro.getStatus());
     }
 }

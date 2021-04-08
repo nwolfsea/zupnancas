@@ -1,8 +1,6 @@
 package br.com.zup.Zupnancas.DTO;
 
 
-
-
 public class FiltroDeCreditosDTO {
 
     private String nome;
