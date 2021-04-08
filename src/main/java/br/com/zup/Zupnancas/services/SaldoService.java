@@ -1,11 +1,13 @@
 package br.com.zup.Zupnancas.services;
 
+
 import br.com.zup.Zupnancas.repositories.SaldoRepository;
 import br.com.zup.Zupnancas.models.Saldo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//Visualizar Saldo
+import java.util.List;
+
 @Service
 public class SaldoService {
 
@@ -17,8 +19,8 @@ public class SaldoService {
         return objetoSaldo;
     }
 
-    //public Saldo visualizarSaldo(Saldo saldo){
-       // Saldo objSaldo = (Saldo) saldoRepository.findAll(saldo);
-        //return objSaldo;
-    //}
+    public List<Saldo> visualizarSaldo(){
+        List<Saldo> saldos = (List<Saldo>)saldoRepository.findAll();
+        return saldos;
+    }
 }
