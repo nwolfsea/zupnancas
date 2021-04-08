@@ -1,22 +1,20 @@
 package br.com.zup.Zupnancas.DTO;
 
 
-import br.com.zup.Zupnancas.models.Categoria;
 
-import java.util.List;
 
 public class FiltroDeCreditosDTO {
 
-    private List<Categoria> categorias;
+    private String nome;
 
     public FiltroDeCreditosDTO() {
     }
 
-    public List<Categoria> getCategorias() {
-        return categorias;
+    public String getNome() {
+        return nome;
     }
 
-    public void setCategorias(List<Categoria> categorias) {
-        this.categorias = categorias;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

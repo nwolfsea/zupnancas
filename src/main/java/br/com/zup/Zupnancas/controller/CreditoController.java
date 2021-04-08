@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("creditos/")
@@ -23,10 +22,6 @@ public class CreditoController {
         return creditoService.cadastrarCredito(credito);
     }
 
-    @GetMapping
-    public List<Credito> visualizarTodosOsCreditos(){
-        return creditoService.pesquisarTodosOsCreditos();
-    }
 
     @GetMapping
     public Iterable<CreditoDTO> pesquisarTodosOsCreditosPorCategoria(@ModelAttribute FiltroDeCreditosDTO filtro ){

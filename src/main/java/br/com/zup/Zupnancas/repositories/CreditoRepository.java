@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface CreditoRepository extends CrudRepository<Credito,Integer> {
-    Iterable<Credito> findByCategoria(List<Categoria> categorias);
+    Iterable<Credito> findAllByCategoriasNome(String nome);
 }

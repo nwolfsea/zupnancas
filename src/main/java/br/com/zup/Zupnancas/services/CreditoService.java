@@ -26,10 +26,10 @@ public class CreditoService {
     }
 
     public Iterable<Credito> pesquisarTodosOsCreditosPorCategoria(FiltroDeCreditosDTO filtro){
-        if(filtro.getCategorias() == null){
+        if(filtro.getNome() == null){
             return creditoRepository.findAll();
         }
-        return creditoRepository.findByCategoria(filtro.getCategorias());
+        return creditoRepository.findAllByCategoriasNome(filtro.getNome());
     }
 
 }
