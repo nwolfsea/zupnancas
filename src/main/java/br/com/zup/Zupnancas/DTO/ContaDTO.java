@@ -1,35 +1,22 @@
-package br.com.zup.Zupnancas.models;
+package br.com.zup.Zupnancas.DTO;
 
 import br.com.zup.Zupnancas.enuns.StatusEnum;
+import br.com.zup.Zupnancas.models.Conta;
 
 
-import javax.persistence.*;
+
 import java.time.LocalDate;
-import java.util.List;
 
-@Entity
-@Table(name = "contas")
-public class Conta {
+public class ContaDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "valor_contas")
     private Double valor;
-    @Column(name = "descricao_contas")
     private String descricao;
-    @Column(name = "entrada_contas")
     private LocalDate dataDeEntrada;
-    @Column(name = "vencimento_contas")
     private LocalDate dataDeVencimento;
-    @Column(name = "status_conta")
     private StatusEnum status;
 
-    @ManyToOne(optional = false)
-    private Saldo saldo;
-
-
-    public Conta() {
+    public ContaDTO() {
     }
 
     public int getId() {
@@ -78,5 +65,18 @@ public class Conta {
 
     public void setStatus(StatusEnum status) {
         this.status = status;
+    }
+
+    public static ContaDTO conveterModelParaDTO(Conta conta){
+        ContaDTO contaDTO = new ContaDTO();
+
+        contaDTO.setId(conta.getId());
+        contaDTO.setValor(conta.getValor());
+        contaDTO.setDescricao(conta.getDescricao());
+        contaDTO.setDataDeEntrada(conta.getDataDeEntrada());
+        contaDTO.setDataDeVencimento(conta.getDataDeVencimento());
+        contaDTO.setStatus(conta.getStatus());
+
+        return contaDTO;
     }
 }

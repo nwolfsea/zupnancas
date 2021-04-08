@@ -1,5 +1,6 @@
 package br.com.zup.Zupnancas.services;
 
+import br.com.zup.Zupnancas.DTO.FiltroDeCreditosDTO;
 import br.com.zup.Zupnancas.models.Credito;
 import br.com.zup.Zupnancas.repositories.CreditoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,11 @@ public class CreditoService {
         return creditos;
     }
 
-
+    public Iterable<Credito> pesquisarTodosOsCreditosPorCategoria(FiltroDeCreditosDTO filtro){
+        if(filtro.getCategorias() == null){
+            return creditoRepository.findAll();
+        }
+        return creditoRepository.findByCategoria(filtro.getCategorias());
+    }
 
 }

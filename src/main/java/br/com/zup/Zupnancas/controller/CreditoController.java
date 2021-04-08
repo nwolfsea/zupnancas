@@ -1,7 +1,8 @@
 package br.com.zup.Zupnancas.controller;
 
+import br.com.zup.Zupnancas.DTO.CreditoDTO;
+import br.com.zup.Zupnancas.DTO.FiltroDeCreditosDTO;
 import br.com.zup.Zupnancas.models.Credito;
-import br.com.zup.Zupnancas.models.Saldo;
 import br.com.zup.Zupnancas.services.CreditoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,5 +26,11 @@ public class CreditoController {
     @GetMapping
     public List<Credito> visualizarTodosOsCreditos(){
         return creditoService.pesquisarTodosOsCreditos();
+    }
+
+    @GetMapping
+    public Iterable<CreditoDTO> pesquisarTodosOsCreditosPorCategoria(@ModelAttribute FiltroDeCreditosDTO filtro ){
+        Iterable<Credito> creditos = creditoService.pesquisarTodosOsCreditosPorCategoria(filtro);
+        return CreditoDTO.converterIterableDeModelParaDTO(creditos);
     }
 }
