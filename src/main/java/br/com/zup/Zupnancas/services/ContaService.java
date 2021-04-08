@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-//Atualizar conta
+
 //Pesquisar Contas Pagas, Aguardando ou Atrasadas.
 //
-//DELETAR categoria.
+
 @Service
 public class ContaService {
 
@@ -17,7 +17,14 @@ public class ContaService {
     private ContaRepository contaRepository;
 
     public Conta cadastrarConta(Conta conta){
-        Conta objetoConta = contaRepository.save(conta);
-        return objetoConta;
+        return contaRepository.save(conta);
+    }
+
+    public Conta atualizarConta(Conta conta){
+        if (contaRepository.existsById(conta.getId())){
+            Conta objConta = cadastrarConta(conta);
+            return objConta;
+        }
+        throw new RuntimeException("Conta não localizada!");
     }
 }

@@ -5,6 +5,7 @@ import br.com.zup.Zupnancas.enuns.StatusEnum;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "contas")
@@ -28,7 +29,7 @@ public class Conta {
     private Saldo saldo;
 
     @ManyToMany
-    private Categoria categoria;
+    private List<Categoria> categorias;
 
     public Conta() {
     }

@@ -4,9 +4,8 @@ import br.com.zup.Zupnancas.models.Credito;
 import br.com.zup.Zupnancas.repositories.CreditoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
+
 
 //Pesquisar Todos os Creditos por Categoria
 @Service
@@ -24,6 +23,7 @@ public class CreditoService {
         List<Credito> creditos = (List<Credito>) creditoRepository.findAll();
         return creditos;
     }
+
 
 
 }
