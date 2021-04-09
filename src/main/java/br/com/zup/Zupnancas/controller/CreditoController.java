@@ -2,6 +2,7 @@ package br.com.zup.Zupnancas.controller;
 
 import br.com.zup.Zupnancas.DTO.CreditoDTO;
 import br.com.zup.Zupnancas.DTO.FiltroDeCreditosDTO;
+import br.com.zup.Zupnancas.controller.request.CreditoRequest;
 import br.com.zup.Zupnancas.models.Credito;
 import br.com.zup.Zupnancas.services.CreditoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,8 @@ public class CreditoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Credito cadastrarCredito(@RequestBody Credito credito){
-        return creditoService.cadastrarCredito(credito);
+    public Credito cadastrarCredito(@RequestBody CreditoRequest creditoRequest){
+        return creditoService.cadastrarCredito(creditoRequest);
     }
 
 

@@ -59,4 +59,20 @@ public class Credito {
     public void setDataDeEntrada(LocalDate dataDeEntrada) {
         this.dataDeEntrada = dataDeEntrada;
     }
+
+    public Saldo getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(Saldo saldo) {
+        this.saldo = saldo;
+    }
+
+    public List<Categoria> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(List<Categoria> categorias) {
+        this.categorias = categorias;
+    }
 }

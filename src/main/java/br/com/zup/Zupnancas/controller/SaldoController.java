@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -19,7 +20,7 @@ public class SaldoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Saldo cadastrarSaldo(@RequestBody Saldo saldo){
+    public Saldo cadastrarSaldo(@RequestBody @Valid Saldo saldo){
         return saldoService.cadastrarSaldo(saldo);
     }
 
